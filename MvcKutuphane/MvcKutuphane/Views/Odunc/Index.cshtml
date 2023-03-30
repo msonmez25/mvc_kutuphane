@@ -1,0 +1,55 @@
+﻿@using MvcKutuphane.Models.Entity
+@model List<Tbl_Hareket>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>ÖDÜNÇ KİTAPLAR LİSTESİ</h2>
+
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr style="background-color: #e67e22">
+            <th>ID</th>
+            <th>PERSONEL AD SOYAD</th>
+            <th>KİTAP ADI</th>
+            <th>ÜYE AD SOYAD</th>
+            <th>KİTAP ALIŞ TARİHİ</th>
+            <th>KİTAP İADE TARİHİ</th>
+            <th>İADE AL</th>
+        </tr>
+    </thead>
+    @foreach (var hrkt in Model)
+    {
+        <tr>
+            <td>@hrkt.ID</td>
+            <td>@hrkt.Tbl_Personel.PERSONEL</td>
+            <td>@hrkt.Tbl_Kitap.AD</td>
+            <td>@hrkt.Tbl_Uyeler.AD &nbsp @hrkt.Tbl_Uyeler.SOYAD</td>
+            <td>@Convert.ToDateTime(hrkt.ALISTARIH).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(hrkt.IADETARIH).ToString("dd/MM/yyyy")</td>
+
+            <td><a href="/Odunc/OduncIade/@hrkt.ID" class="btn btn-info" style="background-color:#64d8ca; color:black ">Kitabı İade Et</a></td>
+        </tr>
+    }
+
+</table>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').DataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+        }
+    });
+</script>

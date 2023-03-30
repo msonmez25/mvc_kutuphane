@@ -1,0 +1,61 @@
+﻿@model MvcKutuphane.Models.Entity.Tbl_Admin
+@{
+    ViewBag.Title = "AdminGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>ADMİN BİLGİ GÜNCELLEME SAYFASI</h2>
+<br />
+@using (Html.BeginForm("AdminGuncelle", "Ayarlar", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>ADI</label>
+        @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>SOYADI</label>
+        @Html.TextBoxFor(k => k.SOYAD, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>FOTOĞRAF</label>
+        @Html.TextBoxFor(k => k.FOTOGRAF, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>EĞİTİM</label>
+        @Html.TextBoxFor(k => k.EGITIM, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>TELEFON</label>
+        @Html.TextBoxFor(k => k.TELEFON, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>MAiL</label>
+        @Html.TextBoxFor(k => k.MAIL, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>KULLANICI</label>
+        @Html.TextBoxFor(k => k.KULLANICI, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>ŞİFRE</label>
+        @Html.TextBoxFor(k => k.SIFRE, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>YETKİ</label>
+        @Html.TextBoxFor(k => k.YETKI, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(k => k.ID)
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+}
+

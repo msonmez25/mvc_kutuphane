@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbMvcKutuphaneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tbl_Admin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="20" />
+    <Property Name="SOYAD" Type="varchar" MaxLength="20" />
+    <Property Name="FOTOGRAF" Type="varchar" MaxLength="250" />
+    <Property Name="EGITIM" Type="varchar" MaxLength="50" />
+    <Property Name="TELEFON" Type="varchar" MaxLength="15" />
+    <Property Name="MAIL" Type="varchar" MaxLength="50" />
+    <Property Name="KULLANICI" Type="varchar" MaxLength="20" />
+    <Property Name="SIFRE" Type="varchar" MaxLength="20" />
+    <Property Name="YETKI" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Tbl_Cezalar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UYE" Type="int" />
+    <Property Name="BASLANGIC" Type="smalldatetime" />
+    <Property Name="BITIS" Type="smalldatetime" />
+    <Property Name="PARA" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="HAREKET" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_Duyuru">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KATEGORI" Type="varchar" MaxLength="50" />
+    <Property Name="ICERIK" Type="varchar" MaxLength="300" />
+    <Property Name="ILANTARIH" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Tbl_Hakkimizda">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ACIKLAMA" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Tbl_Hareket">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KITAP" Type="int" />
+    <Property Name="UYE" Type="int" />
+    <Property Name="PERSONEL" Type="int" />
+    <Property Name="ALISTARIH" Type="smalldatetime" />
+    <Property Name="IADETARIH" Type="smalldatetime" />
+    <Property Name="UYEGETIRTARIH" Type="smalldatetime" />
+    <Property Name="ISLEMDURUM" Type="bit" />
+  </EntityType>
+  <EntityType Name="Tbl_Iletisim">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="50" />
+    <Property Name="MAIL" Type="varchar" MaxLength="50" />
+    <Property Name="KONU" Type="varchar" MaxLength="50" />
+    <Property Name="MESAJ" Type="varchar" MaxLength="1000" />
+    <Property Name="TARIH" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="Tbl_Kasa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AY" Type="varchar" MaxLength="20" />
+    <Property Name="TUTAR" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Tbl_Kategori">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="20" />
+    <Property Name="DURUM" Type="bit" />
+  </EntityType>
+  <EntityType Name="Tbl_Kitap">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="50" />
+    <Property Name="KATEGORI" Type="tinyint" />
+    <Property Name="YAZAR" Type="int" />
+    <Property Name="BASIMYIL" Type="char" MaxLength="4" />
+    <Property Name="YAYINEVI" Type="varchar" MaxLength="50" />
+    <Property Name="SAYFASAYISI" Type="varchar" MaxLength="4" />
+    <Property Name="DURUM" Type="bit" />
+    <Property Name="KITAPRESIM" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Tbl_Mesajlar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GONDEREN" Type="varchar" MaxLength="50" />
+    <Property Name="ALICI" Type="varchar" MaxLength="50" />
+    <Property Name="KONU" Type="varchar" MaxLength="50" />
+    <Property Name="ICERIK" Type="varchar" MaxLength="500" />
+    <Property Name="TARIH" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="Tbl_Personel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PERSONEL" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_Uyeler">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="20" />
+    <Property Name="SOYAD" Type="varchar" MaxLength="20" />
+    <Property Name="MAIL" Type="varchar" MaxLength="50" />
+    <Property Name="KULLANICIADI" Type="varchar" MaxLength="20" />
+    <Property Name="SIFRE" Type="varchar" MaxLength="20" />
+    <Property Name="FOROGRAF" Type="varchar" MaxLength="250" />
+    <Property Name="TELEFON" Type="varchar" MaxLength="20" />
+    <Property Name="EGITIM" Type="varchar" MaxLength="100" />
+    <Property Name="YETKI" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Tbl_Yazar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="30" />
+    <Property Name="SOYAD" Type="varchar" MaxLength="30" />
+    <Property Name="DETAY" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <Association Name="FK_Tbl_Cezalar_Tbl_Hareket">
+    <End Role="Tbl_Hareket" Type="Self.Tbl_Hareket" Multiplicity="0..1" />
+    <End Role="Tbl_Cezalar" Type="Self.Tbl_Cezalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Hareket">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Cezalar">
+        <PropertyRef Name="HAREKET" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Cezalar_Tbl_Uyeler">
+    <End Role="Tbl_Uyeler" Type="Self.Tbl_Uyeler" Multiplicity="0..1" />
+    <End Role="Tbl_Cezalar" Type="Self.Tbl_Cezalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Uyeler">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Cezalar">
+        <PropertyRef Name="UYE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Hareket_Tbl_Kitap">
+    <End Role="Tbl_Kitap" Type="Self.Tbl_Kitap" Multiplicity="0..1" />
+    <End Role="Tbl_Hareket" Type="Self.Tbl_Hareket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Kitap">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Hareket">
+        <PropertyRef Name="KITAP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Hareket_Tbl_Personel">
+    <End Role="Tbl_Personel" Type="Self.Tbl_Personel" Multiplicity="0..1" />
+    <End Role="Tbl_Hareket" Type="Self.Tbl_Hareket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Personel">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Hareket">
+        <PropertyRef Name="PERSONEL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Hareket_Tbl_Uyeler">
+    <End Role="Tbl_Uyeler" Type="Self.Tbl_Uyeler" Multiplicity="0..1" />
+    <End Role="Tbl_Hareket" Type="Self.Tbl_Hareket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Uyeler">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Hareket">
+        <PropertyRef Name="UYE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Kitap_Tbl_Kategori">
+    <End Role="Tbl_Kategori" Type="Self.Tbl_Kategori" Multiplicity="0..1" />
+    <End Role="Tbl_Kitap" Type="Self.Tbl_Kitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Kategori">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Kitap">
+        <PropertyRef Name="KATEGORI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Kitap_Tbl_Yazar">
+    <End Role="Tbl_Yazar" Type="Self.Tbl_Yazar" Multiplicity="0..1" />
+    <End Role="Tbl_Kitap" Type="Self.Tbl_Kitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Yazar">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Kitap">
+        <PropertyRef Name="YAZAR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="EnAktifUye" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="EnBasariliPersonel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="EnCokOkunanKitap" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="EnFazlaKitapYazar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="EniyiYayinEvi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="DbMvcKutuphaneModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Admin" EntityType="Self.Tbl_Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Cezalar" EntityType="Self.Tbl_Cezalar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Duyuru" EntityType="Self.Tbl_Duyuru" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Hakkimizda" EntityType="Self.Tbl_Hakkimizda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Hareket" EntityType="Self.Tbl_Hareket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Iletisim" EntityType="Self.Tbl_Iletisim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Kasa" EntityType="Self.Tbl_Kasa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Kategori" EntityType="Self.Tbl_Kategori" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Kitap" EntityType="Self.Tbl_Kitap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Mesajlar" EntityType="Self.Tbl_Mesajlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Personel" EntityType="Self.Tbl_Personel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Uyeler" EntityType="Self.Tbl_Uyeler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Yazar" EntityType="Self.Tbl_Yazar" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Tbl_Cezalar_Tbl_Hareket" Association="Self.FK_Tbl_Cezalar_Tbl_Hareket">
+      <End Role="Tbl_Hareket" EntitySet="Tbl_Hareket" />
+      <End Role="Tbl_Cezalar" EntitySet="Tbl_Cezalar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Cezalar_Tbl_Uyeler" Association="Self.FK_Tbl_Cezalar_Tbl_Uyeler">
+      <End Role="Tbl_Uyeler" EntitySet="Tbl_Uyeler" />
+      <End Role="Tbl_Cezalar" EntitySet="Tbl_Cezalar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Hareket_Tbl_Kitap" Association="Self.FK_Tbl_Hareket_Tbl_Kitap">
+      <End Role="Tbl_Kitap" EntitySet="Tbl_Kitap" />
+      <End Role="Tbl_Hareket" EntitySet="Tbl_Hareket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Hareket_Tbl_Personel" Association="Self.FK_Tbl_Hareket_Tbl_Personel">
+      <End Role="Tbl_Personel" EntitySet="Tbl_Personel" />
+      <End Role="Tbl_Hareket" EntitySet="Tbl_Hareket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Hareket_Tbl_Uyeler" Association="Self.FK_Tbl_Hareket_Tbl_Uyeler">
+      <End Role="Tbl_Uyeler" EntitySet="Tbl_Uyeler" />
+      <End Role="Tbl_Hareket" EntitySet="Tbl_Hareket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Kitap_Tbl_Kategori" Association="Self.FK_Tbl_Kitap_Tbl_Kategori">
+      <End Role="Tbl_Kategori" EntitySet="Tbl_Kategori" />
+      <End Role="Tbl_Kitap" EntitySet="Tbl_Kitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Kitap_Tbl_Yazar" Association="Self.FK_Tbl_Kitap_Tbl_Yazar">
+      <End Role="Tbl_Yazar" EntitySet="Tbl_Yazar" />
+      <End Role="Tbl_Kitap" EntitySet="Tbl_Kitap" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

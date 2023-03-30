@@ -1,0 +1,56 @@
+﻿@model MvcKutuphane.Models.Entity.Tbl_Hareket
+
+@{
+    ViewBag.Title = "OduncIade";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>ÖDÜNÇ KİTAP İADE SAYFASI</h2>
+
+@using (Html.BeginForm("OduncGuncelle", "Odunc", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>HAREKET ID</label>
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>KİTAP ADI</label>
+        @Html.TextBoxFor(k => k.Tbl_Kitap.AD, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>ÜYE ADI</label>
+        @Html.TextBoxFor(k => k.Tbl_Uyeler.AD , new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>PERSONEL ADI</label>
+        @Html.TextBoxFor(k => k.Tbl_Personel.PERSONEL, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>ALIŞ TARİHİ</label>
+        @Html.TextBoxFor(k => k.ALISTARIH, "{0:dd.MM.yyyy}", new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>NORMAL İADE TARİHİ</label>
+        @Html.TextBoxFor(k => k.IADETARIH, "{0:dd.MM.yyyy}", new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>ÜYENİN GETİRDİĞİ TARİH</label>
+        <input type="text" class="form-control" name="UYEGETIRTARIH" value="@DateTime.Now.ToShortDateString()" />
+    </div>
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>GEÇ GELEN GÜN SAYISI</label>
+        <input type="text" class="form-control" id="Gecinput" value="@ViewBag.dgr" />
+    </div>
+
+    <div>
+        <button class="btn btn-info" style="background-color:#64d8ca; color:black ">Ödünç Kitabı Geri Al</button>
+    </div>
+}

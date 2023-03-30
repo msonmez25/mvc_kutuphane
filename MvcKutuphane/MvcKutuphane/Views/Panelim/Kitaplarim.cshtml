@@ -1,0 +1,68 @@
+﻿@using MvcKutuphane.Models.Entity
+@model List<Tbl_Hareket>
+@{
+    ViewBag.Title = "Kitaplarim";
+    Layout = "~/Views/Shared/_LayoutPanelim.cshtml";
+}
+
+<br />
+<h4>Kitap Listem</h4>
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- /.col -->
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header p-2">
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tab-pane" id="timeline">
+                                <!-- The timeline -->
+                                <div class="timeline timeline-inverse">
+                                    <!-- timeline time label -->
+                                    @foreach (var item in Model)
+                                    {
+                                        <div class="time-label">
+                                            <a class="btn btn-success">
+                                                <span class="bg-success">
+                                                    @(((DateTime)item.ALISTARIH).ToString("dd-MMM-yyyy"))
+                                                </span>
+                                            </a>
+                                            -----
+                                            <a class="btn btn-warning">
+                                                <span class="bg-warning">
+                                                    @if (@item.UYEGETIRTARIH == null)
+                                                    {
+                                                    <i>Okuyor...</i>
+                                                    }
+                                                    @if (@item.UYEGETIRTARIH != null)
+                                                    {
+                                                        @Convert.ToDateTime(item.UYEGETIRTARIH).ToString("dd/MM/yyyy")
+                                                    }
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            @*<i class="fas fa-comment bg-primary"></i>*@
+                                            <div class="timeline-item">
+                                                <div class="timeline-body">
+                                                    @item.Tbl_Kitap.AD -- @item.Tbl_Kitap.Tbl_Yazar.AD @item.Tbl_Kitap.Tbl_Yazar.SOYAD
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.card-body -->
+                </div>
+                <!-- /.nav-tabs-custom -->
+            </div>
+            <!-- /.col -->
+        </div>
+    </section>
+</body>
+</html>
